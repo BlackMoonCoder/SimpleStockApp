@@ -1,0 +1,27 @@
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import StockLookupScreen from './screens/StockLookupScreen';
+import PortfolioScreen from './screens/PortfolioScreen';
+
+const Stack = createNativeStackNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Lookup">
+        <Stack.Screen
+          name="Lookup"
+          component={StockLookupScreen}
+          options={{ title: 'Stock Lookup' }}
+        />
+        <Stack.Screen
+          name="Portfolio"
+          component={PortfolioScreen}
+          options={{ title: 'My Portfolio' }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
